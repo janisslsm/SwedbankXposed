@@ -1,8 +1,5 @@
-#include <stdio.h>
-#include <string.h>
-#include <iostream>
+#include <cstring>
 #include <jni.h>
-#include <dlfcn.h>
 #include "core.hpp"
 
 static HookFunType hook_func = nullptr;
