@@ -7,7 +7,7 @@ class MainHook : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         if (lpparam.packageName == "lv.swedbank.mobile" ||
                 lpparam.packageName == "lt.swedbank.mobile" ||
-                lpparam.packageName == "com.swedbank.mobile") {
+                lpparam.packageName == "com.swedbank") {
             try {
                 System.loadLibrary("swedbankxposed")
             } catch (e: Throwable) {
