@@ -5,7 +5,9 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 class MainHook : IXposedHookLoadPackage {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        if (lpparam.packageName == "lv.swedbank.mobile") {
+        if (lpparam.packageName == "lv.swedbank.mobile" ||
+                lpparam.packageName == "lt.swedbank.mobile" ||
+                lpparam.packageName == "com.swedbank.mobile") {
             try {
                 System.loadLibrary("swedbankxposed")
             } catch (e: Throwable) {
