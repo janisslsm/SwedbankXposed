@@ -11,7 +11,10 @@ int (*backup_system_property_get)(const char *name, char* value);
 
 int fake_system_property_get(const char *name, char* value) {
     if (strcmp(name, "sys.oem_unlock_allowed") == 0)
-        return backup_system_property_get("ro.debuggable", value);
+    {
+        strcpy(value, "0");
+        return 1;
+    }
 
     return backup_system_property_get(name, value);
 }
