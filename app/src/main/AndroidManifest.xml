@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:multiArch="true"
-        android:extractNativeLibs="false"
-        android:theme="@style/Theme.SwedbankXposed">
+        android:extractNativeLibs="false">
         <meta-data
             android:name="xposedmodule"
             android:value="true" />

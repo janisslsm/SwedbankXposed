@@ -9,7 +9,12 @@ class MainHook : IXposedHookLoadPackage {
                 lpparam.packageName == "lt.swedbank.mobile" ||
                 lpparam.packageName == "com.swedbank") {
             try {
-                System.loadLibrary("swedbankxposed")
+                XposedHelpers.findAndHookMethod("com.meawallet.mtp.MeaCryptoException", lpparam.classLoader, "isRootedDeviceDetected", object : XC_MethodHook() {
+                    override fun afterHookedMethod(param: MethodHookParam) {
+                        param.result = false;
+                    }
+                });
+                //System.loadLibrary("swedbankxposed")
             } catch (e: Throwable) {
                 XposedBridge.log(e)
             }
